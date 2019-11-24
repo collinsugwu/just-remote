@@ -14,7 +14,9 @@ ActiveRecord::Schema.define(version: 2019_11_22_181253) do
 
   create_table "job_details", force: :cascade do |t|
     t.integer "job_id"
-    t.text "detail"
+    t.text "description"
+    t.string "recruiter"
+    t.string "location"
     t.string "stack"
     t.string "cloned_site"
     t.datetime "created_at", precision: 6, null: false
