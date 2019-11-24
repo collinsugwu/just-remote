@@ -1,5 +1,5 @@
 class JobDetail < ApplicationRecord
-  validates :detail, presence: true
+  validates :description, presence: true
 
   belongs_to :job
 end
