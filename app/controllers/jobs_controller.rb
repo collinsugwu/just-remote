@@ -24,6 +24,22 @@ class JobsController < ApplicationController
 
   def destroy; end
 
+  def save_scraped_jobs
+      scrap = Scrap::Scrap.new
+      @data = scrap.job_links
+      @data.each do |data|
+        ActiveRecord::Base.transaction do
+          job = Job.new
+          job.title = data[:title]
+          job.description = data[:description]
+          job.location = data[:location]
+          job.recruiter = data[:recruiter]
+          job.stack = data[:stack]
+          job.save
+        end
+      end
+  end
+
   private
 
   def set_job

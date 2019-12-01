@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_181253) do
+ActiveRecord::Schema.define(version: 2019_11_22_181144) do
 
-  create_table "job_details", force: :cascade do |t|
-    t.integer "job_id"
+  create_table "jobs", force: :cascade do |t|
+    t.text "title"
+    t.text "slug"
+    t.integer "user_id"
     t.text "description"
     t.string "recruiter"
     t.string "location"
@@ -21,14 +23,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_181253) do
     t.string "cloned_site"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "jobs", force: :cascade do |t|
-    t.text "title"
-    t.text "slug"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_jobs_on_slug", unique: true
+    t.index ["user_id"], name: "index_jobs_on_user_id", unique: true
   end
 
 end
