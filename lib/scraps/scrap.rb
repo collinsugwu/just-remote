@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Scrap
+module Scraps
   class Scrap
     require 'nokogiri'
     require 'open-uri'
