@@ -48,8 +48,8 @@ module Scraps
 
     def stack(main_tag)
       stack = []
-      main_tag.css('.tags').each do |tag|
-        stack << tag.css('no-break a').text
+      main_tag.css('.tags .tags .no-break').each do |tag|
+        stack << tag.css('span a').text
       end
 
       stack
