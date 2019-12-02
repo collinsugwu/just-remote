@@ -1,0 +1,44 @@
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3 class="display-5">Best Remote Jobs Scrapped from the Web</h3>
+      <p class="lead">#1 destination to find incredible remote jobs.</p>
+    </div>
+  </div>
+  <main role="main" class="container">
+  <div class="d-flex align-items-center p-3 my-3 rounded shadow-sm">
+    <div class="lh-100">
+      <h4 class="mb-0 lh-100">Latest Remote Jobs</h4>
+      <small>from around the web</small>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="my-3 p-3 bg-white rounded shadow-sm col-md-9">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Recent jobs</h6>
+    <% if !@jobs.blank? %>
+      <% @jobs.each do |job| %>
+        <div class="media text-muted pt-3">
+          <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= link_to job.title, job%> at <em><%= job.recruiter%></em></strong> 
+            <%= job.stack%>
+          </p>
+    </div>
+      <% end %>
+    <% else %>
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">Nothing Here</strong>
+      </p>
+    <%end%>
+  </div>
+  <div class="col-md-3">
+    <div class="card">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+  </div>
+  </div>
+  <%= will_paginate @jobs %>
+</main>
