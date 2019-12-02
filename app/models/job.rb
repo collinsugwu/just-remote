@@ -6,4 +6,5 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+   self.per_page = 10
 end
