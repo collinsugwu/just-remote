@@ -7,6 +7,8 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+# Use Postgres database
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -27,8 +29,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -59,7 +59,3 @@ gem 'whenever', require: false
 
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate', '~> 3.1.0'
-
-group :production do
-  gem 'pg', '1.1.4'
-end
