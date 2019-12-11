@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   before_action :set_job, only: %i[show update destroy]
   def index
-    @jobs = Job.paginate(page: params[:page], per_page: 10)
+    @jobs = Job.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
   end
 
   def show; end
