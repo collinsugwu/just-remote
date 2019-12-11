@@ -9,7 +9,7 @@ module Scraps
 
     def initialize
       page = Nokogiri::HTML(open(BASE_LINK))
-      @jobs = page.css('ul.featured li')
+      @jobs = page.css('div.jobs-container ul li')
     end
 
     def job_links
@@ -19,7 +19,7 @@ module Scraps
         detail_page = Nokogiri::HTML(open(BASE_LINK + link))
         main_tag = detail_page.css('main')
         title = title(main_tag)
-        stack = stack(main_tag)
+        stack = stack(main_tag).to_html
         recruiter = recruiter(main_tag)
         location = location(main_tag)
         description = description(main_tag).to_html
@@ -47,12 +47,7 @@ module Scraps
     end
 
     def stack(main_tag)
-      stack = []
-      main_tag.css('.tags .tags .no-break').each do |tag|
-        stack << tag.css('span a').text
-      end
-
-      stack
+      main_tag.css('.tags')
     end
   end
 end
