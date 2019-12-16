@@ -58,6 +58,7 @@ gem 'whenever', require: false
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'bootstrap-will_paginate'
 group :production do
   gem 'pg'
 end
