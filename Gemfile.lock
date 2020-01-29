@@ -59,7 +59,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
-    bootsnap (1.4.5)
+    bootsnap (1.4.1)
       msgpack (~> 1.0)
     bootstrap-will_paginate (1.0.0)
       will_paginate
@@ -207,7 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootsnap (>= 1.4.2)
+  bootsnap (>= 1.1.0, < 1.4.2)
   bootstrap-will_paginate
   byebug
   capybara (~> 2.13)
