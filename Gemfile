@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
@@ -26,6 +26,12 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
  gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false
+
+ gem 'rexml', '~> 3.2', '>= 3.2.4'
+
+ gem 'pg'
+
+ gem 'dotenv-rails'
 
 group :development, :test do
   gem 'sqlite3'
@@ -59,6 +65,6 @@ gem 'whenever', require: false
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'bootstrap-will_paginate'
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
