@@ -26,16 +26,13 @@ class JobsController < ApplicationController
 
   def save_scraped_jobs
       scrap = Scraps::Scrap.new
-      @data = scrap.job_links
-      @data.each do |data|
+      data = scrap.job_links
+      data.in_groups_of(50) do |datum|
         ActiveRecord::Base.transaction do
-          job = Job.new
-          job.title = data[:title]
-          job.description = data[:description]
-          job.location = data[:location]
-          job.recruiter = data[:recruiter]
-          job.stack = data[:stack]
-          job.save
+          Job.insert_all([
+            data,
+            returning: %w[ id title description location recruiter stack ]
+          ])
         end
       end
   end
