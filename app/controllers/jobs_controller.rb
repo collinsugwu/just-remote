@@ -25,16 +25,8 @@ class JobsController < ApplicationController
   def destroy; end
 
   def save_scraped_jobs
-      scrap = Scraps::Scrap.new
-      data = scrap.job_links
-      data.in_groups_of(50) do |datum|
-        ActiveRecord::Base.transaction do
-          Job.insert_all([
-            data,
-            returning: %w[ id title description location recruiter stack ]
-          ])
-        end
-      end
+   ScrapJobs.perform_async
+   render text: "Jobs scrapped successfully"
   end
 
   private

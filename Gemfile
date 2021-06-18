@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.7'
 
  gem 'dotenv-rails'
 
+ gem 'sidekiq'
+
+ gem 'sinatra', github: 'sinatra/sinatra'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
